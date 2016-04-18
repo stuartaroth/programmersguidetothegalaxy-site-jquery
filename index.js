@@ -24,10 +24,11 @@ var Language;
     Language[Language["JavaScript"] = 3] = "JavaScript";
     Language[Language["Kotlin"] = 4] = "Kotlin";
     Language[Language["Perl"] = 5] = "Perl";
-    Language[Language["Python"] = 6] = "Python";
-    Language[Language["Ruby"] = 7] = "Ruby";
-    Language[Language["Scala"] = 8] = "Scala";
-    Language[Language["TypeScript"] = 9] = "TypeScript";
+    Language[Language["PHP"] = 6] = "PHP";
+    Language[Language["Python"] = 7] = "Python";
+    Language[Language["Ruby"] = 8] = "Ruby";
+    Language[Language["Scala"] = 9] = "Scala";
+    Language[Language["TypeScript"] = 10] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -45,6 +46,8 @@ var HtmlService = (function () {
                     return "language-kotlin";
                 case Language.Perl:
                     return "language-perl";
+                case Language.PHP:
+                    return "language-php";
                 case Language.Python:
                     return "language-python";
                 case Language.Ruby:
@@ -96,6 +99,8 @@ var CodeService = (function () {
                     return "example.kt";
                 case Language.Perl:
                     return "example.pl";
+                case Language.PHP:
+                    return "example.php";
                 case Language.Python:
                     return "example.py";
                 case Language.Ruby:
@@ -145,6 +150,7 @@ var CodeService = (function () {
             { language: Language.JavaScript, text: "JavaScript" },
             { language: Language.Kotlin, text: "Kotlin" },
             { language: Language.Perl, text: "Perl" },
+            { language: Language.PHP, text: "PHP" },
             { language: Language.Python, text: "Python" },
             { language: Language.Ruby, text: "Ruby" },
             { language: Language.Scala, text: "Scala" },
