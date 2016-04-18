@@ -22,11 +22,12 @@ var Language;
     Language[Language["Go"] = 1] = "Go";
     Language[Language["Java"] = 2] = "Java";
     Language[Language["JavaScript"] = 3] = "JavaScript";
-    Language[Language["Perl"] = 4] = "Perl";
-    Language[Language["Python"] = 5] = "Python";
-    Language[Language["Ruby"] = 6] = "Ruby";
-    Language[Language["Scala"] = 7] = "Scala";
-    Language[Language["TypeScript"] = 8] = "TypeScript";
+    Language[Language["Kotlin"] = 4] = "Kotlin";
+    Language[Language["Perl"] = 5] = "Perl";
+    Language[Language["Python"] = 6] = "Python";
+    Language[Language["Ruby"] = 7] = "Ruby";
+    Language[Language["Scala"] = 8] = "Scala";
+    Language[Language["TypeScript"] = 9] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -40,6 +41,8 @@ var HtmlService = (function () {
                     return "language-java";
                 case Language.JavaScript:
                     return "language-javascript";
+                case Language.Kotlin:
+                    return "language-kotlin";
                 case Language.Perl:
                     return "language-perl";
                 case Language.Python:
@@ -89,6 +92,8 @@ var CodeService = (function () {
                     return "Example.java";
                 case Language.JavaScript:
                     return "exampleJs.js";
+                case Language.Kotlin:
+                    return "example.kt";
                 case Language.Perl:
                     return "example.pl";
                 case Language.Python:
@@ -138,6 +143,7 @@ var CodeService = (function () {
             { language: Language.Go, text: "Go" },
             { language: Language.Java, text: "Java" },
             { language: Language.JavaScript, text: "JavaScript" },
+            { language: Language.Kotlin, text: "Kotlin" },
             { language: Language.Perl, text: "Perl" },
             { language: Language.Python, text: "Python" },
             { language: Language.Ruby, text: "Ruby" },

@@ -22,6 +22,7 @@ enum Language {
   Go,
   Java,
   JavaScript,
+  Kotlin,
   Perl,
   Python,
   Ruby,
@@ -75,6 +76,8 @@ class HtmlService {
         return "language-java";
       case Language.JavaScript:
         return "language-javascript";
+      case Language.Kotlin:
+        return "language-kotlin";
       case Language.Perl:
         return "language-perl";
       case Language.Python:
@@ -111,6 +114,8 @@ class CodeService {
         return "Example.java";
       case Language.JavaScript:
         return "exampleJs.js";
+      case Language.Kotlin:
+        return "example.kt";
       case Language.Perl:
         return "example.pl";
       case Language.Python:
@@ -162,6 +167,7 @@ class CodeService {
     {language:Language.Go, text:"Go"},
     {language:Language.Java, text:"Java"},
     {language:Language.JavaScript, text:"JavaScript"},
+    {language:Language.Kotlin, text:"Kotlin"},
     {language:Language.Perl, text:"Perl"},
     {language:Language.Python, text:"Python"},
     {language:Language.Ruby, text:"Ruby"},
