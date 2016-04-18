@@ -1,5 +1,5 @@
 interface IPrism {
-  highlightAll(async:boolean, callback:() => void);
+  highlightAll(async:boolean, callback?:() => void);
 }
 
 declare module "Prism" {

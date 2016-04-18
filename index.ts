@@ -90,15 +90,11 @@ class HtmlService {
 
 
   updateCodeExample(language:Language, data:string) {
-    var outerCode = $('#code-container');
     var innerCode = $('#inner-code');
-    outerCode.toggle();
-    innerCode.text(data);
     innerCode.text(data);
     innerCode.removeClass();
     innerCode.addClass(this.getLanguageStyling(language));
-    Prism.highlightAll(true, () => outerCode.toggle());
-
+    Prism.highlightAll(false);
   }
 }
 

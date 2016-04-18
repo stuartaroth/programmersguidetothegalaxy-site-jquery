@@ -67,14 +67,11 @@ var HtmlService = (function () {
         $('#current-language').text(languageItemText);
     };
     HtmlService.prototype.updateCodeExample = function (language, data) {
-        var outerCode = $('#code-container');
         var innerCode = $('#inner-code');
-        outerCode.toggle();
-        innerCode.text(data);
         innerCode.text(data);
         innerCode.removeClass();
         innerCode.addClass(this.getLanguageStyling(language));
-        Prism.highlightAll(true, function () { return outerCode.toggle(); });
+        Prism.highlightAll(false);
     };
     return HtmlService;
 }());
