@@ -12,6 +12,7 @@ enum Folder {
   HelloWorld,
   Ifs,
   Interpolation,
+  Lambdas,
   Loops,
   SimpleClass,
   Variables
@@ -158,6 +159,8 @@ class CodeService {
         return "ifs";
       case Folder.Interpolation:
         return "interpolation";
+      case Folder.Lambdas:
+        return "lambdas";
       case Folder.Loops:
         return "loops";
       case Folder.SimpleClass:
@@ -194,6 +197,7 @@ class CodeService {
     {folder:Folder.HelloWorld, text:"Hello World"},
     {folder:Folder.Ifs, text:"If Statements"},
     {folder:Folder.Interpolation, text:"Interpolation"},
+    {folder:Folder.Lambdas, text:"Lambdas"},
     {folder:Folder.Loops, text:"Loop Statements"},
     {folder:Folder.Variables, text:"Variables"}
   ];

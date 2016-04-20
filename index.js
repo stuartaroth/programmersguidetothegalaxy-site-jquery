@@ -12,9 +12,10 @@ var Folder;
     Folder[Folder["HelloWorld"] = 8] = "HelloWorld";
     Folder[Folder["Ifs"] = 9] = "Ifs";
     Folder[Folder["Interpolation"] = 10] = "Interpolation";
-    Folder[Folder["Loops"] = 11] = "Loops";
-    Folder[Folder["SimpleClass"] = 12] = "SimpleClass";
-    Folder[Folder["Variables"] = 13] = "Variables";
+    Folder[Folder["Lambdas"] = 11] = "Lambdas";
+    Folder[Folder["Loops"] = 12] = "Loops";
+    Folder[Folder["SimpleClass"] = 13] = "SimpleClass";
+    Folder[Folder["Variables"] = 14] = "Variables";
 })(Folder || (Folder = {}));
 var Language;
 (function (Language) {
@@ -135,6 +136,8 @@ var CodeService = (function () {
                     return "ifs";
                 case Folder.Interpolation:
                     return "interpolation";
+                case Folder.Lambdas:
+                    return "lambdas";
                 case Folder.Loops:
                     return "loops";
                 case Folder.SimpleClass:
@@ -169,6 +172,7 @@ var CodeService = (function () {
             { folder: Folder.HelloWorld, text: "Hello World" },
             { folder: Folder.Ifs, text: "If Statements" },
             { folder: Folder.Interpolation, text: "Interpolation" },
+            { folder: Folder.Lambdas, text: "Lambdas" },
             { folder: Folder.Loops, text: "Loop Statements" },
             { folder: Folder.Variables, text: "Variables" }
         ];
