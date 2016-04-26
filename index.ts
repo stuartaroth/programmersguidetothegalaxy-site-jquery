@@ -19,6 +19,7 @@ enum Folder {
 }
 
 enum Language {
+  CSharp,
   Dart,
   Go,
   Java,
@@ -70,6 +71,8 @@ class HtmlService {
 
   private getLanguageStyling = (language:Language) => {
     switch(language) {
+      case Language.CSharp:
+        return "language-csharp";
       case Language.Dart:
         return "language-dart";
       case Language.Go:
@@ -110,6 +113,8 @@ class CodeService {
 
   private getLanguage = (language:Language) => {
     switch(language) {
+      case Language.CSharp:
+        return "Example.cs";
       case Language.Dart:
         return "example.dart";
       case Language.Go:
@@ -171,6 +176,7 @@ class CodeService {
   };
 
   languageMenuItems:Array<LanguageMenuItem> = [
+    {language:Language.CSharp, text:"C#"},
     {language:Language.Dart, text:"Dart"},
     {language:Language.Go, text:"Go"},
     {language:Language.Java, text:"Java"},

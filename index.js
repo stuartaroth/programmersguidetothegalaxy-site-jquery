@@ -19,22 +19,25 @@ var Folder;
 })(Folder || (Folder = {}));
 var Language;
 (function (Language) {
-    Language[Language["Dart"] = 0] = "Dart";
-    Language[Language["Go"] = 1] = "Go";
-    Language[Language["Java"] = 2] = "Java";
-    Language[Language["JavaScript"] = 3] = "JavaScript";
-    Language[Language["Kotlin"] = 4] = "Kotlin";
-    Language[Language["Perl"] = 5] = "Perl";
-    Language[Language["PHP"] = 6] = "PHP";
-    Language[Language["Python"] = 7] = "Python";
-    Language[Language["Ruby"] = 8] = "Ruby";
-    Language[Language["Scala"] = 9] = "Scala";
-    Language[Language["TypeScript"] = 10] = "TypeScript";
+    Language[Language["CSharp"] = 0] = "CSharp";
+    Language[Language["Dart"] = 1] = "Dart";
+    Language[Language["Go"] = 2] = "Go";
+    Language[Language["Java"] = 3] = "Java";
+    Language[Language["JavaScript"] = 4] = "JavaScript";
+    Language[Language["Kotlin"] = 5] = "Kotlin";
+    Language[Language["Perl"] = 6] = "Perl";
+    Language[Language["PHP"] = 7] = "PHP";
+    Language[Language["Python"] = 8] = "Python";
+    Language[Language["Ruby"] = 9] = "Ruby";
+    Language[Language["Scala"] = 10] = "Scala";
+    Language[Language["TypeScript"] = 11] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
         this.getLanguageStyling = function (language) {
             switch (language) {
+                case Language.CSharp:
+                    return "language-csharp";
                 case Language.Dart:
                     return "language-dart";
                 case Language.Go:
@@ -88,6 +91,8 @@ var CodeService = (function () {
         this.htmlService = htmlService;
         this.getLanguage = function (language) {
             switch (language) {
+                case Language.CSharp:
+                    return "Example.cs";
                 case Language.Dart:
                     return "example.dart";
                 case Language.Go:
@@ -147,6 +152,7 @@ var CodeService = (function () {
             }
         };
         this.languageMenuItems = [
+            { language: Language.CSharp, text: "C#" },
             { language: Language.Dart, text: "Dart" },
             { language: Language.Go, text: "Go" },
             { language: Language.Java, text: "Java" },
