@@ -16,6 +16,7 @@ var Folder;
     Folder[Folder["Loops"] = 12] = "Loops";
     Folder[Folder["SimpleClass"] = 13] = "SimpleClass";
     Folder[Folder["Variables"] = 14] = "Variables";
+    Folder[Folder["VariadicFunctions"] = 15] = "VariadicFunctions";
 })(Folder || (Folder = {}));
 var Language;
 (function (Language) {
@@ -149,6 +150,8 @@ var CodeService = (function () {
                     return "simple_class";
                 case Folder.Variables:
                     return "variables";
+                case Folder.VariadicFunctions:
+                    return "variadic_functions";
             }
         };
         this.languageMenuItems = [
@@ -180,7 +183,8 @@ var CodeService = (function () {
             { folder: Folder.Interpolation, text: "Interpolation" },
             { folder: Folder.Lambdas, text: "Lambdas" },
             { folder: Folder.Loops, text: "Loop Statements" },
-            { folder: Folder.Variables, text: "Variables" }
+            { folder: Folder.Variables, text: "Variables" },
+            { folder: Folder.VariadicFunctions, text: "Variadic Functions" }
         ];
         this.getCode = function (language, folder) {
             $.get("node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {

@@ -15,7 +15,8 @@ enum Folder {
   Lambdas,
   Loops,
   SimpleClass,
-  Variables
+  Variables,
+  VariadicFunctions
 }
 
 enum Language {
@@ -172,6 +173,8 @@ class CodeService {
         return "simple_class";
       case Folder.Variables:
         return "variables";
+      case Folder.VariadicFunctions:
+        return "variadic_functions";
     }
   };
 
@@ -205,7 +208,8 @@ class CodeService {
     {folder:Folder.Interpolation, text:"Interpolation"},
     {folder:Folder.Lambdas, text:"Lambdas"},
     {folder:Folder.Loops, text:"Loop Statements"},
-    {folder:Folder.Variables, text:"Variables"}
+    {folder:Folder.Variables, text:"Variables"},
+    {folder:Folder.VariadicFunctions, text:"Variadic Functions"}
   ];
 
   getCode = (language:Language, folder:Folder) => {
