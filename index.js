@@ -31,7 +31,8 @@ var Language;
     Language[Language["Python"] = 8] = "Python";
     Language[Language["Ruby"] = 9] = "Ruby";
     Language[Language["Scala"] = 10] = "Scala";
-    Language[Language["TypeScript"] = 11] = "TypeScript";
+    Language[Language["Swift"] = 11] = "Swift";
+    Language[Language["TypeScript"] = 12] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -59,6 +60,8 @@ var HtmlService = (function () {
                     return "language-ruby";
                 case Language.Scala:
                     return "language-scala";
+                case Language.Swift:
+                    return "language-swift";
                 case Language.TypeScript:
                     return "language-typescript";
             }
@@ -114,6 +117,8 @@ var CodeService = (function () {
                     return "example.rb";
                 case Language.Scala:
                     return "Example.scala";
+                case Language.Swift:
+                    return "Example.swift";
                 case Language.TypeScript:
                     return "example.ts";
             }
@@ -166,6 +171,7 @@ var CodeService = (function () {
             { language: Language.Python, text: "Python" },
             { language: Language.Ruby, text: "Ruby" },
             { language: Language.Scala, text: "Scala" },
+            { language: Language.Swift, text: "Swift" },
             { language: Language.TypeScript, text: "TypeScript" },
         ];
         this.folderMenuItems = [
