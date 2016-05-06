@@ -15,8 +15,9 @@ var Folder;
     Folder[Folder["Lambdas"] = 11] = "Lambdas";
     Folder[Folder["Loops"] = 12] = "Loops";
     Folder[Folder["SimpleClass"] = 13] = "SimpleClass";
-    Folder[Folder["Variables"] = 14] = "Variables";
-    Folder[Folder["VariadicFunctions"] = 15] = "VariadicFunctions";
+    Folder[Folder["TernaryOperators"] = 14] = "TernaryOperators";
+    Folder[Folder["Variables"] = 15] = "Variables";
+    Folder[Folder["VariadicFunctions"] = 16] = "VariadicFunctions";
 })(Folder || (Folder = {}));
 var Language;
 (function (Language) {
@@ -153,6 +154,8 @@ var CodeService = (function () {
                     return "loops";
                 case Folder.SimpleClass:
                     return "simple_class";
+                case Folder.TernaryOperators:
+                    return "ternary_operators";
                 case Folder.Variables:
                     return "variables";
                 case Folder.VariadicFunctions:
@@ -189,6 +192,7 @@ var CodeService = (function () {
             { folder: Folder.Interpolation, text: "Interpolation" },
             { folder: Folder.Lambdas, text: "Lambdas" },
             { folder: Folder.Loops, text: "Loop Statements" },
+            { folder: Folder.TernaryOperators, text: "Ternary Operators" },
             { folder: Folder.Variables, text: "Variables" },
             { folder: Folder.VariadicFunctions, text: "Variadic Functions" }
         ];
