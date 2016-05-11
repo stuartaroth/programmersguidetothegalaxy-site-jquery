@@ -28,13 +28,14 @@ var Language;
     Language[Language["Java"] = 4] = "Java";
     Language[Language["JavaScript"] = 5] = "JavaScript";
     Language[Language["Kotlin"] = 6] = "Kotlin";
-    Language[Language["Perl"] = 7] = "Perl";
-    Language[Language["PHP"] = 8] = "PHP";
-    Language[Language["Python"] = 9] = "Python";
-    Language[Language["Ruby"] = 10] = "Ruby";
-    Language[Language["Scala"] = 11] = "Scala";
-    Language[Language["Swift"] = 12] = "Swift";
-    Language[Language["TypeScript"] = 13] = "TypeScript";
+    Language[Language["Nim"] = 7] = "Nim";
+    Language[Language["Perl"] = 8] = "Perl";
+    Language[Language["PHP"] = 9] = "PHP";
+    Language[Language["Python"] = 10] = "Python";
+    Language[Language["Ruby"] = 11] = "Ruby";
+    Language[Language["Scala"] = 12] = "Scala";
+    Language[Language["Swift"] = 13] = "Swift";
+    Language[Language["TypeScript"] = 14] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -54,6 +55,8 @@ var HtmlService = (function () {
                     return "language-javascript";
                 case Language.Kotlin:
                     return "language-kotlin";
+                case Language.Nim:
+                    return "language-nim";
                 case Language.Perl:
                     return "language-perl";
                 case Language.PHP:
@@ -113,6 +116,8 @@ var CodeService = (function () {
                     return "exampleJs.js";
                 case Language.Kotlin:
                     return "example.kt";
+                case Language.Nim:
+                    return "exampleNim.nim";
                 case Language.Perl:
                     return "example.pl";
                 case Language.PHP:
@@ -175,6 +180,7 @@ var CodeService = (function () {
             { language: Language.Java, text: "Java" },
             { language: Language.JavaScript, text: "JavaScript" },
             { language: Language.Kotlin, text: "Kotlin" },
+            { language: Language.Nim, text: "Nim" },
             { language: Language.Perl, text: "Perl" },
             { language: Language.PHP, text: "PHP" },
             { language: Language.Python, text: "Python" },

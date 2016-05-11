@@ -28,6 +28,7 @@ enum Language {
   Java,
   JavaScript,
   Kotlin,
+  Nim,
   Perl,
   PHP,
   Python,
@@ -89,6 +90,8 @@ class HtmlService {
         return "language-javascript";
       case Language.Kotlin:
         return "language-kotlin";
+      case Language.Nim:
+        return "language-nim";
       case Language.Perl:
         return "language-perl";
       case Language.PHP:
@@ -135,6 +138,8 @@ class CodeService {
         return "exampleJs.js";
       case Language.Kotlin:
         return "example.kt";
+      case Language.Nim:
+        return "exampleNim.nim";
       case Language.Perl:
         return "example.pl";
       case Language.PHP:
@@ -199,6 +204,7 @@ class CodeService {
     {language:Language.Java, text:"Java"},
     {language:Language.JavaScript, text:"JavaScript"},
     {language:Language.Kotlin, text:"Kotlin"},
+    {language:Language.Nim, text:"Nim"},
     {language:Language.Perl, text:"Perl"},
     {language:Language.PHP, text:"PHP"},
     {language:Language.Python, text:"Python"},
