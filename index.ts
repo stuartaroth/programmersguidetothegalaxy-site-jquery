@@ -26,6 +26,7 @@ enum Language {
   CoffeeScript,
   Dart,
   Go,
+  Groovy,
   Java,
   JavaScript,
   Kotlin,
@@ -87,6 +88,8 @@ class HtmlService {
         return "language-dart";
       case Language.Go:
         return "language-go";
+      case Language.Groovy:
+        return "language-groovy";
       case Language.Java:
         return "language-java";
       case Language.JavaScript:
@@ -137,6 +140,8 @@ class CodeService {
         return "example.dart";
       case Language.Go:
         return "example.go";
+      case Language.Groovy:
+        return "example.groovy";
       case Language.Java:
         return "Example.java";
       case Language.JavaScript:
@@ -207,6 +212,7 @@ class CodeService {
     {language:Language.CoffeeScript, text:"CoffeeScript"},
     {language:Language.Dart, text:"Dart"},
     {language:Language.Go, text:"Go"},
+    {language:Language.Groovy, text:"Groovy"},
     {language:Language.Java, text:"Java"},
     {language:Language.JavaScript, text:"JavaScript"},
     {language:Language.Kotlin, text:"Kotlin"},

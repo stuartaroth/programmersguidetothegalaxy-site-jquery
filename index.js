@@ -26,17 +26,18 @@ var Language;
     Language[Language["CoffeeScript"] = 2] = "CoffeeScript";
     Language[Language["Dart"] = 3] = "Dart";
     Language[Language["Go"] = 4] = "Go";
-    Language[Language["Java"] = 5] = "Java";
-    Language[Language["JavaScript"] = 6] = "JavaScript";
-    Language[Language["Kotlin"] = 7] = "Kotlin";
-    Language[Language["Nim"] = 8] = "Nim";
-    Language[Language["Perl"] = 9] = "Perl";
-    Language[Language["PHP"] = 10] = "PHP";
-    Language[Language["Python"] = 11] = "Python";
-    Language[Language["Ruby"] = 12] = "Ruby";
-    Language[Language["Scala"] = 13] = "Scala";
-    Language[Language["Swift"] = 14] = "Swift";
-    Language[Language["TypeScript"] = 15] = "TypeScript";
+    Language[Language["Groovy"] = 5] = "Groovy";
+    Language[Language["Java"] = 6] = "Java";
+    Language[Language["JavaScript"] = 7] = "JavaScript";
+    Language[Language["Kotlin"] = 8] = "Kotlin";
+    Language[Language["Nim"] = 9] = "Nim";
+    Language[Language["Perl"] = 10] = "Perl";
+    Language[Language["PHP"] = 11] = "PHP";
+    Language[Language["Python"] = 12] = "Python";
+    Language[Language["Ruby"] = 13] = "Ruby";
+    Language[Language["Scala"] = 14] = "Scala";
+    Language[Language["Swift"] = 15] = "Swift";
+    Language[Language["TypeScript"] = 16] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -52,6 +53,8 @@ var HtmlService = (function () {
                     return "language-dart";
                 case Language.Go:
                     return "language-go";
+                case Language.Groovy:
+                    return "language-groovy";
                 case Language.Java:
                     return "language-java";
                 case Language.JavaScript:
@@ -115,6 +118,8 @@ var CodeService = (function () {
                     return "example.dart";
                 case Language.Go:
                     return "example.go";
+                case Language.Groovy:
+                    return "example.groovy";
                 case Language.Java:
                     return "Example.java";
                 case Language.JavaScript:
@@ -183,6 +188,7 @@ var CodeService = (function () {
             { language: Language.CoffeeScript, text: "CoffeeScript" },
             { language: Language.Dart, text: "Dart" },
             { language: Language.Go, text: "Go" },
+            { language: Language.Groovy, text: "Groovy" },
             { language: Language.Java, text: "Java" },
             { language: Language.JavaScript, text: "JavaScript" },
             { language: Language.Kotlin, text: "Kotlin" },
