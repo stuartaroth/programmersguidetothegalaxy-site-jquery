@@ -3,6 +3,7 @@
 enum Folder {
   ArraysLists,
   ArraysListsIteration,
+  ArraysListsManipulation,
   CommandLineArguments,
   ExtensionMethods,
   FalsyValues,
@@ -173,6 +174,8 @@ class CodeService {
         return "arrays_lists";
       case Folder.ArraysListsIteration:
         return "arrays_lists_iteration";
+      case Folder.ArraysListsManipulation:
+        return "arrays_lists_manipulation";
       case Folder.CommandLineArguments:
         return "command_line_arguments";
       case Folder.ExtensionMethods:
@@ -229,6 +232,7 @@ class CodeService {
   folderMenuItems:Array<FolderMenuItem> = [
     {folder:Folder.ArraysLists, text:"Arrays/Lists"},
     {folder:Folder.ArraysListsIteration, text:"Arrays/Lists Iteration"},
+    {folder:Folder.ArraysListsManipulation, text:"Arrays/Lists Manipulation"},
     {folder:Folder.SimpleClass, text:"Classes"},
     {folder:Folder.CommandLineArguments, text:"Command Line Arguments"},
     {folder:Folder.ExtensionMethods, text:"Extension Methods"},
@@ -254,7 +258,7 @@ class CodeService {
   };
 
   currentLanguage:LanguageMenuItem = this.languageMenuItems[1];
-  currentFolder:FolderMenuItem = this.folderMenuItems[2];
+  currentFolder:FolderMenuItem = this.folderMenuItems[3];
   currentCode:string = "";
 
   updateCode = () => {

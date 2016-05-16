@@ -3,21 +3,22 @@ var Folder;
 (function (Folder) {
     Folder[Folder["ArraysLists"] = 0] = "ArraysLists";
     Folder[Folder["ArraysListsIteration"] = 1] = "ArraysListsIteration";
-    Folder[Folder["CommandLineArguments"] = 2] = "CommandLineArguments";
-    Folder[Folder["ExtensionMethods"] = 3] = "ExtensionMethods";
-    Folder[Folder["FalsyValues"] = 4] = "FalsyValues";
-    Folder[Folder["Functions"] = 5] = "Functions";
-    Folder[Folder["HashMaps"] = 6] = "HashMaps";
-    Folder[Folder["HashMapsIteration"] = 7] = "HashMapsIteration";
-    Folder[Folder["HelloWorld"] = 8] = "HelloWorld";
-    Folder[Folder["Ifs"] = 9] = "Ifs";
-    Folder[Folder["Interpolation"] = 10] = "Interpolation";
-    Folder[Folder["Lambdas"] = 11] = "Lambdas";
-    Folder[Folder["Loops"] = 12] = "Loops";
-    Folder[Folder["SimpleClass"] = 13] = "SimpleClass";
-    Folder[Folder["TernaryOperators"] = 14] = "TernaryOperators";
-    Folder[Folder["Variables"] = 15] = "Variables";
-    Folder[Folder["VariadicFunctions"] = 16] = "VariadicFunctions";
+    Folder[Folder["ArraysListsManipulation"] = 2] = "ArraysListsManipulation";
+    Folder[Folder["CommandLineArguments"] = 3] = "CommandLineArguments";
+    Folder[Folder["ExtensionMethods"] = 4] = "ExtensionMethods";
+    Folder[Folder["FalsyValues"] = 5] = "FalsyValues";
+    Folder[Folder["Functions"] = 6] = "Functions";
+    Folder[Folder["HashMaps"] = 7] = "HashMaps";
+    Folder[Folder["HashMapsIteration"] = 8] = "HashMapsIteration";
+    Folder[Folder["HelloWorld"] = 9] = "HelloWorld";
+    Folder[Folder["Ifs"] = 10] = "Ifs";
+    Folder[Folder["Interpolation"] = 11] = "Interpolation";
+    Folder[Folder["Lambdas"] = 12] = "Lambdas";
+    Folder[Folder["Loops"] = 13] = "Loops";
+    Folder[Folder["SimpleClass"] = 14] = "SimpleClass";
+    Folder[Folder["TernaryOperators"] = 15] = "TernaryOperators";
+    Folder[Folder["Variables"] = 16] = "Variables";
+    Folder[Folder["VariadicFunctions"] = 17] = "VariadicFunctions";
 })(Folder || (Folder = {}));
 var Language;
 (function (Language) {
@@ -150,6 +151,8 @@ var CodeService = (function () {
                     return "arrays_lists";
                 case Folder.ArraysListsIteration:
                     return "arrays_lists_iteration";
+                case Folder.ArraysListsManipulation:
+                    return "arrays_lists_manipulation";
                 case Folder.CommandLineArguments:
                     return "command_line_arguments";
                 case Folder.ExtensionMethods:
@@ -204,6 +207,7 @@ var CodeService = (function () {
         this.folderMenuItems = [
             { folder: Folder.ArraysLists, text: "Arrays/Lists" },
             { folder: Folder.ArraysListsIteration, text: "Arrays/Lists Iteration" },
+            { folder: Folder.ArraysListsManipulation, text: "Arrays/Lists Manipulation" },
             { folder: Folder.SimpleClass, text: "Classes" },
             { folder: Folder.CommandLineArguments, text: "Command Line Arguments" },
             { folder: Folder.ExtensionMethods, text: "Extension Methods" },
@@ -227,7 +231,7 @@ var CodeService = (function () {
             });
         };
         this.currentLanguage = this.languageMenuItems[1];
-        this.currentFolder = this.folderMenuItems[2];
+        this.currentFolder = this.folderMenuItems[3];
         this.currentCode = "";
         this.updateCode = function () {
             _this.getCode(_this.currentLanguage.language, _this.currentFolder.folder);
