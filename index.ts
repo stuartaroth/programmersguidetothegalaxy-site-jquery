@@ -258,7 +258,7 @@ class CodeService {
   };
 
   currentLanguage:LanguageMenuItem = this.languageMenuItems[1];
-  currentFolder:FolderMenuItem = this.folderMenuItems[3];
+  currentFolder:FolderMenuItem = this.folderMenuItems[7];
   currentCode:string = "";
 
   updateCode = () => {

@@ -231,7 +231,7 @@ var CodeService = (function () {
             });
         };
         this.currentLanguage = this.languageMenuItems[1];
-        this.currentFolder = this.folderMenuItems[3];
+        this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {
             _this.getCode(_this.currentLanguage.language, _this.currentFolder.folder);
