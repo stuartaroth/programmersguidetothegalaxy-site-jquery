@@ -36,9 +36,10 @@ var Language;
     Language[Language["PHP"] = 11] = "PHP";
     Language[Language["Python"] = 12] = "Python";
     Language[Language["Ruby"] = 13] = "Ruby";
-    Language[Language["Scala"] = 14] = "Scala";
-    Language[Language["Swift"] = 15] = "Swift";
-    Language[Language["TypeScript"] = 16] = "TypeScript";
+    Language[Language["Rust"] = 14] = "Rust";
+    Language[Language["Scala"] = 15] = "Scala";
+    Language[Language["Swift"] = 16] = "Swift";
+    Language[Language["TypeScript"] = 17] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -72,6 +73,8 @@ var HtmlService = (function () {
                     return "language-python";
                 case Language.Ruby:
                     return "language-ruby";
+                case Language.Rust:
+                    return "language-rust";
                 case Language.Scala:
                     return "language-scala";
                 case Language.Swift:
@@ -137,6 +140,8 @@ var CodeService = (function () {
                     return "example.py";
                 case Language.Ruby:
                     return "example.rb";
+                case Language.Rust:
+                    return "example.rs";
                 case Language.Scala:
                     return "Example.scala";
                 case Language.Swift:
@@ -200,6 +205,7 @@ var CodeService = (function () {
             { language: Language.PHP, text: "PHP" },
             { language: Language.Python, text: "Python" },
             { language: Language.Ruby, text: "Ruby" },
+            { language: Language.Rust, text: "Rust" },
             { language: Language.Scala, text: "Scala" },
             { language: Language.Swift, text: "Swift" },
             { language: Language.TypeScript, text: "TypeScript" },

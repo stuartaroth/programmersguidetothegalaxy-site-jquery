@@ -36,6 +36,7 @@ enum Language {
   PHP,
   Python,
   Ruby,
+  Rust,
   Scala,
   Swift,
   TypeScript
@@ -107,6 +108,8 @@ class HtmlService {
         return "language-python";
       case Language.Ruby:
         return "language-ruby";
+      case Language.Rust:
+        return "language-rust";
       case Language.Scala:
         return "language-scala";
       case Language.Swift:
@@ -159,6 +162,8 @@ class CodeService {
         return "example.py";
       case Language.Ruby:
         return "example.rb";
+      case Language.Rust:
+        return "example.rs";
       case Language.Scala:
         return "Example.scala";
       case Language.Swift:
@@ -224,6 +229,7 @@ class CodeService {
     {language:Language.PHP, text:"PHP"},
     {language:Language.Python, text:"Python"},
     {language:Language.Ruby, text:"Ruby"},
+    {language:Language.Rust, text:"Rust"},
     {language:Language.Scala, text:"Scala"},
     {language:Language.Swift, text:"Swift"},
     {language:Language.TypeScript, text:"TypeScript"},
