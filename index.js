@@ -236,7 +236,7 @@ var CodeService = (function () {
                 _this.htmlService.updateCodeExample(language, data);
             });
         };
-        this.currentLanguage = this.languageMenuItems[1];
+        this.currentLanguage = this.languageMenuItems[15];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {
