@@ -23,23 +23,24 @@ var Folder;
 var Language;
 (function (Language) {
     Language[Language["CSharp"] = 0] = "CSharp";
-    Language[Language["Clojure"] = 1] = "Clojure";
-    Language[Language["CoffeeScript"] = 2] = "CoffeeScript";
-    Language[Language["Dart"] = 3] = "Dart";
-    Language[Language["Go"] = 4] = "Go";
-    Language[Language["Groovy"] = 5] = "Groovy";
-    Language[Language["Java"] = 6] = "Java";
-    Language[Language["JavaScript"] = 7] = "JavaScript";
-    Language[Language["Kotlin"] = 8] = "Kotlin";
-    Language[Language["Nim"] = 9] = "Nim";
-    Language[Language["Perl"] = 10] = "Perl";
-    Language[Language["PHP"] = 11] = "PHP";
-    Language[Language["Python"] = 12] = "Python";
-    Language[Language["Ruby"] = 13] = "Ruby";
-    Language[Language["Rust"] = 14] = "Rust";
-    Language[Language["Scala"] = 15] = "Scala";
-    Language[Language["Swift"] = 16] = "Swift";
-    Language[Language["TypeScript"] = 17] = "TypeScript";
+    Language[Language["CPlusPlus"] = 1] = "CPlusPlus";
+    Language[Language["Clojure"] = 2] = "Clojure";
+    Language[Language["CoffeeScript"] = 3] = "CoffeeScript";
+    Language[Language["Dart"] = 4] = "Dart";
+    Language[Language["Go"] = 5] = "Go";
+    Language[Language["Groovy"] = 6] = "Groovy";
+    Language[Language["Java"] = 7] = "Java";
+    Language[Language["JavaScript"] = 8] = "JavaScript";
+    Language[Language["Kotlin"] = 9] = "Kotlin";
+    Language[Language["Nim"] = 10] = "Nim";
+    Language[Language["Perl"] = 11] = "Perl";
+    Language[Language["PHP"] = 12] = "PHP";
+    Language[Language["Python"] = 13] = "Python";
+    Language[Language["Ruby"] = 14] = "Ruby";
+    Language[Language["Rust"] = 15] = "Rust";
+    Language[Language["Scala"] = 16] = "Scala";
+    Language[Language["Swift"] = 17] = "Swift";
+    Language[Language["TypeScript"] = 18] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -47,6 +48,8 @@ var HtmlService = (function () {
             switch (language) {
                 case Language.CSharp:
                     return "language-csharp";
+                case Language.CPlusPlus:
+                    return "language-cpp";
                 case Language.Clojure:
                     return "language-clojure";
                 case Language.CoffeeScript:
@@ -114,6 +117,8 @@ var CodeService = (function () {
             switch (language) {
                 case Language.CSharp:
                     return "Example.cs";
+                case Language.CPlusPlus:
+                    return "example.cpp";
                 case Language.Clojure:
                     return "example.clj";
                 case Language.CoffeeScript:
@@ -192,6 +197,7 @@ var CodeService = (function () {
         };
         this.languageMenuItems = [
             { language: Language.CSharp, text: "C#" },
+            { language: Language.CPlusPlus, text: "C++" },
             { language: Language.Clojure, text: "Clojure" },
             { language: Language.CoffeeScript, text: "CoffeeScript" },
             { language: Language.Dart, text: "Dart" },
@@ -236,7 +242,7 @@ var CodeService = (function () {
                 _this.htmlService.updateCodeExample(language, data);
             });
         };
-        this.currentLanguage = this.languageMenuItems[15];
+        this.currentLanguage = this.languageMenuItems[16];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {

@@ -23,6 +23,7 @@ enum Folder {
 
 enum Language {
   CSharp,
+  CPlusPlus,
   Clojure,
   CoffeeScript,
   Dart,
@@ -82,6 +83,8 @@ class HtmlService {
     switch(language) {
       case Language.CSharp:
         return "language-csharp";
+      case Language.CPlusPlus:
+        return "language-cpp";
       case Language.Clojure:
         return "language-clojure";
       case Language.CoffeeScript:
@@ -136,6 +139,8 @@ class CodeService {
     switch(language) {
       case Language.CSharp:
         return "Example.cs";
+      case Language.CPlusPlus:
+        return "example.cpp";
       case Language.Clojure:
         return "example.clj";
       case Language.CoffeeScript:
@@ -216,6 +221,7 @@ class CodeService {
 
   languageMenuItems:Array<LanguageMenuItem> = [
     {language:Language.CSharp, text:"C#"},
+    {language:Language.CPlusPlus, text:"C++"},
     {language:Language.Clojure, text:"Clojure"},
     {language:Language.CoffeeScript, text:"CoffeeScript"},
     {language:Language.Dart, text:"Dart"},
@@ -263,7 +269,7 @@ class CodeService {
     });
   };
 
-  currentLanguage:LanguageMenuItem = this.languageMenuItems[15];
+  currentLanguage:LanguageMenuItem = this.languageMenuItems[16];
   currentFolder:FolderMenuItem = this.folderMenuItems[7];
   currentCode:string = "";
 
