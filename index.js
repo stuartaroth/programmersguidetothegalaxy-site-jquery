@@ -242,7 +242,7 @@ var CodeService = (function () {
                 _this.htmlService.updateCodeExample(language, data);
             });
         };
-        this.currentLanguage = this.languageMenuItems[16];
+        this.currentLanguage = this.languageMenuItems[5];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {

@@ -269,7 +269,7 @@ class CodeService {
     });
   };
 
-  currentLanguage:LanguageMenuItem = this.languageMenuItems[16];
+  currentLanguage:LanguageMenuItem = this.languageMenuItems[5];
   currentFolder:FolderMenuItem = this.folderMenuItems[7];
   currentCode:string = "";
 
