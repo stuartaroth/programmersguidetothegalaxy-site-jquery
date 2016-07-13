@@ -16,6 +16,7 @@ enum Folder {
   Lambdas,
   Loops,
   SimpleClass,
+  Switches,
   TernaryOperators,
   Variables,
   VariadicFunctions
@@ -210,6 +211,8 @@ class CodeService {
         return "loops";
       case Folder.SimpleClass:
         return "simple_class";
+      case Folder.Switches:
+        return "switches";
       case Folder.TernaryOperators:
         return "ternary_operators";
       case Folder.Variables:
@@ -257,6 +260,7 @@ class CodeService {
     {folder:Folder.Interpolation, text:"Interpolation"},
     {folder:Folder.Lambdas, text:"Lambdas"},
     {folder:Folder.Loops, text:"Loop Statements"},
+    {folder:Folder.Switches, text: "Switch Statements"},
     {folder:Folder.TernaryOperators, text:"Ternary Operators"},
     {folder:Folder.Variables, text:"Variables"},
     {folder:Folder.VariadicFunctions, text:"Variadic Functions"}
