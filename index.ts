@@ -27,6 +27,7 @@ enum Language {
   CPlusPlus,
   Clojure,
   CoffeeScript,
+  CommonLisp,
   Dart,
   Go,
   Groovy,
@@ -90,6 +91,8 @@ class HtmlService {
         return "language-clojure";
       case Language.CoffeeScript:
         return "language-coffeescript";
+      case Language.CommonLisp:
+        return "language-lisp";
       case Language.Dart:
         return "language-dart";
       case Language.Go:
@@ -146,6 +149,8 @@ class CodeService {
         return "example.clj";
       case Language.CoffeeScript:
         return "exampleCoffee.coffee";
+      case Language.CommonLisp:
+        return "example.lisp";
       case Language.Dart:
         return "example.dart";
       case Language.Go:
@@ -227,6 +232,7 @@ class CodeService {
     {language:Language.CPlusPlus, text:"C++"},
     {language:Language.Clojure, text:"Clojure"},
     {language:Language.CoffeeScript, text:"CoffeeScript"},
+    {language:Language.CommonLisp, text:"Common Lisp"},
     {language:Language.Dart, text:"Dart"},
     {language:Language.Go, text:"Go"},
     {language:Language.Groovy, text:"Groovy"},
@@ -273,7 +279,7 @@ class CodeService {
     });
   };
 
-  currentLanguage:LanguageMenuItem = this.languageMenuItems[5];
+  currentLanguage:LanguageMenuItem = this.languageMenuItems[6];
   currentFolder:FolderMenuItem = this.folderMenuItems[7];
   currentCode:string = "";
 
