@@ -64,9 +64,17 @@ class HtmlService {
     `;
   }
 
-  createLanguageMenuItem(languageMenuItem:LanguageMenuItem):string {
+  createLanguageMenuItemLeft(languageMenuItem:LanguageMenuItem):string {
     return `
-      <li id='language-${languageMenuItem.language}' onclick='inputService.updateLanguage(${JSON.stringify(languageMenuItem)}, "#language-${languageMenuItem.language}")'>
+      <li id='language-${languageMenuItem.language}' onclick='inputService.updateLanguageLeft(${JSON.stringify(languageMenuItem)}, "#language-${languageMenuItem.language}")'>
+        <a href='#'>${languageMenuItem.text}</a>
+      </li>
+    `
+  }
+
+  createLanguageMenuItemRight(languageMenuItem:LanguageMenuItem):string {
+    return `
+      <li id='language-${languageMenuItem.language}' onclick='inputService.updateLanguageRight(${JSON.stringify(languageMenuItem)}, "#language-${languageMenuItem.language}")'>
         <a href='#'>${languageMenuItem.text}</a>
       </li>
     `
@@ -77,8 +85,12 @@ class HtmlService {
     $(folderId).addClass('active');
   }
 
-  updateSelectedLanguage(languageItemText:string) {
-    $('#current-language').text(languageItemText);
+  updateSelectedLanguageLeft(languageItemText:string) {
+    $('#current-language-left').text(languageItemText);
+  }
+
+  updateSelectedLanguageRight(languageItemText:string) {
+    $('#current-language-right').text(languageItemText);
   }
 
   private getLanguageStyling = (language:Language) => {
@@ -127,8 +139,16 @@ class HtmlService {
   };
 
 
-  updateCodeExample(language:Language, data:string) {
-    var innerCode = $('#inner-code');
+  updateCodeExampleLeft(language:Language, data:string) {
+    var innerCode = $('#inner-code-left');
+    innerCode.text(data);
+    innerCode.removeClass();
+    innerCode.addClass(this.getLanguageStyling(language));
+    Prism.highlightAll(false);
+  }
+
+  updateCodeExampleRight(language:Language, data:string) {
+    var innerCode = $('#inner-code-right');
     innerCode.text(data);
     innerCode.removeClass();
     innerCode.addClass(this.getLanguageStyling(language));
@@ -272,19 +292,28 @@ class CodeService {
     {folder:Folder.VariadicFunctions, text:"Variadic Functions"}
   ];
 
-  getCode = (language:Language, folder:Folder) => {
+  getCodeLeft = (language:Language, folder:Folder) => {
     $.get(`node_modules/programmersguidetothegalaxy/${this.getFolder(folder)}/${this.getLanguage(language)}`, (data) => {
       this.currentCode = data;
-      this.htmlService.updateCodeExample(language, data);
+      this.htmlService.updateCodeExampleLeft(language, data);
     });
   };
 
-  currentLanguage:LanguageMenuItem = this.languageMenuItems[6];
+  getCodeRight = (language:Language, folder:Folder) => {
+    $.get(`node_modules/programmersguidetothegalaxy/${this.getFolder(folder)}/${this.getLanguage(language)}`, (data) => {
+      this.currentCode = data;
+      this.htmlService.updateCodeExampleRight(language, data);
+    });
+  };
+
+  currentLanguageLeft:LanguageMenuItem = this.languageMenuItems[6];
+  currentLanguageRight:LanguageMenuItem = this.languageMenuItems[6];
   currentFolder:FolderMenuItem = this.folderMenuItems[7];
   currentCode:string = "";
 
   updateCode = () => {
-    this.getCode(this.currentLanguage.language, this.currentFolder.folder);
+    this.getCodeLeft(this.currentLanguageLeft.language, this.currentFolder.folder);
+    this.getCodeRight(this.currentLanguageRight.language, this.currentFolder.folder);
   };
 
   updateFolder = (folderMenuItem:FolderMenuItem) => {
@@ -292,8 +321,13 @@ class CodeService {
     this.updateCode();
   };
 
-  updateLanguage = (languageMenuItem:LanguageMenuItem) => {
-    this.currentLanguage = languageMenuItem;
+  updateLanguageLeft = (languageMenuItem:LanguageMenuItem) => {
+    this.currentLanguageLeft = languageMenuItem;
+    this.updateCode();
+  };
+
+  updateLanguageRight = (languageMenuItem:LanguageMenuItem) => {
+    this.currentLanguageRight = languageMenuItem;
     this.updateCode();
   };
 }
@@ -305,15 +339,22 @@ class InputService {
     this.codeService.htmlService.updateSelectedFolder(folderId);
   };
 
-  updateLanguage = (languageMenuItem:LanguageMenuItem) => {
-    this.codeService.updateLanguage(languageMenuItem);
-    this.codeService.htmlService.updateSelectedLanguage(languageMenuItem.text)
+  updateLanguageLeft = (languageMenuItem:LanguageMenuItem) => {
+    this.codeService.updateLanguageLeft(languageMenuItem);
+    this.codeService.htmlService.updateSelectedLanguageLeft(languageMenuItem.text)
+  };
+
+  updateLanguageRight = (languageMenuItem:LanguageMenuItem) => {
+    this.codeService.updateLanguageRight(languageMenuItem);
+    this.codeService.htmlService.updateSelectedLanguageRight(languageMenuItem.text)
   };
 
   initialize() {
     $('#folder-nav').append(this.codeService.folderMenuItems.map(this.codeService.htmlService.createFolderMenuItem).join(''));
-    $('#language-nav').append(this.codeService.languageMenuItems.map(this.codeService.htmlService.createLanguageMenuItem).join(''));
-    $('#current-language').text(this.codeService.currentLanguage.text);
+    $('#language-nav-left').append(this.codeService.languageMenuItems.map(this.codeService.htmlService.createLanguageMenuItemLeft).join(''));
+    $('#language-nav-right').append(this.codeService.languageMenuItems.map(this.codeService.htmlService.createLanguageMenuItemRight).join(''));
+    $('#current-language-left').text(this.codeService.currentLanguageLeft.text);
+    $('#current-language-right').text(this.codeService.currentLanguageRight.text);
     $(`#folder-${this.codeService.currentFolder.folder}`).addClass('active');
     this.codeService.updateCode();
   }

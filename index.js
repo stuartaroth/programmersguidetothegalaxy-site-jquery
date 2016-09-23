@@ -94,18 +94,31 @@ var HtmlService = (function () {
     HtmlService.prototype.createFolderMenuItem = function (folderMenuItem) {
         return "\n      <li class='folder-menu-item' id='folder-" + folderMenuItem.folder + "' onclick='inputService.updateFolder(" + JSON.stringify(folderMenuItem) + ", \"#folder-" + folderMenuItem.folder + "\")'>\n        <a href='#'>" + folderMenuItem.text + "</a>\n      </li>\n    ";
     };
-    HtmlService.prototype.createLanguageMenuItem = function (languageMenuItem) {
-        return "\n      <li id='language-" + languageMenuItem.language + "' onclick='inputService.updateLanguage(" + JSON.stringify(languageMenuItem) + ", \"#language-" + languageMenuItem.language + "\")'>\n        <a href='#'>" + languageMenuItem.text + "</a>\n      </li>\n    ";
+    HtmlService.prototype.createLanguageMenuItemLeft = function (languageMenuItem) {
+        return "\n      <li id='language-" + languageMenuItem.language + "' onclick='inputService.updateLanguageLeft(" + JSON.stringify(languageMenuItem) + ", \"#language-" + languageMenuItem.language + "\")'>\n        <a href='#'>" + languageMenuItem.text + "</a>\n      </li>\n    ";
+    };
+    HtmlService.prototype.createLanguageMenuItemRight = function (languageMenuItem) {
+        return "\n      <li id='language-" + languageMenuItem.language + "' onclick='inputService.updateLanguageRight(" + JSON.stringify(languageMenuItem) + ", \"#language-" + languageMenuItem.language + "\")'>\n        <a href='#'>" + languageMenuItem.text + "</a>\n      </li>\n    ";
     };
     HtmlService.prototype.updateSelectedFolder = function (folderId) {
         $('.folder-menu-item').removeClass('active');
         $(folderId).addClass('active');
     };
-    HtmlService.prototype.updateSelectedLanguage = function (languageItemText) {
-        $('#current-language').text(languageItemText);
+    HtmlService.prototype.updateSelectedLanguageLeft = function (languageItemText) {
+        $('#current-language-left').text(languageItemText);
     };
-    HtmlService.prototype.updateCodeExample = function (language, data) {
-        var innerCode = $('#inner-code');
+    HtmlService.prototype.updateSelectedLanguageRight = function (languageItemText) {
+        $('#current-language-right').text(languageItemText);
+    };
+    HtmlService.prototype.updateCodeExampleLeft = function (language, data) {
+        var innerCode = $('#inner-code-left');
+        innerCode.text(data);
+        innerCode.removeClass();
+        innerCode.addClass(this.getLanguageStyling(language));
+        Prism.highlightAll(false);
+    };
+    HtmlService.prototype.updateCodeExampleRight = function (language, data) {
+        var innerCode = $('#inner-code-right');
         innerCode.text(data);
         innerCode.removeClass();
         innerCode.addClass(this.getLanguageStyling(language));
@@ -246,24 +259,36 @@ var CodeService = (function () {
             { folder: Folder.Variables, text: "Variables" },
             { folder: Folder.VariadicFunctions, text: "Variadic Functions" }
         ];
-        this.getCode = function (language, folder) {
+        this.getCodeLeft = function (language, folder) {
             $.get("node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
                 _this.currentCode = data;
-                _this.htmlService.updateCodeExample(language, data);
+                _this.htmlService.updateCodeExampleLeft(language, data);
             });
         };
-        this.currentLanguage = this.languageMenuItems[6];
+        this.getCodeRight = function (language, folder) {
+            $.get("node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
+                _this.currentCode = data;
+                _this.htmlService.updateCodeExampleRight(language, data);
+            });
+        };
+        this.currentLanguageLeft = this.languageMenuItems[6];
+        this.currentLanguageRight = this.languageMenuItems[6];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {
-            _this.getCode(_this.currentLanguage.language, _this.currentFolder.folder);
+            _this.getCodeLeft(_this.currentLanguageLeft.language, _this.currentFolder.folder);
+            _this.getCodeRight(_this.currentLanguageRight.language, _this.currentFolder.folder);
         };
         this.updateFolder = function (folderMenuItem) {
             _this.currentFolder = folderMenuItem;
             _this.updateCode();
         };
-        this.updateLanguage = function (languageMenuItem) {
-            _this.currentLanguage = languageMenuItem;
+        this.updateLanguageLeft = function (languageMenuItem) {
+            _this.currentLanguageLeft = languageMenuItem;
+            _this.updateCode();
+        };
+        this.updateLanguageRight = function (languageMenuItem) {
+            _this.currentLanguageRight = languageMenuItem;
             _this.updateCode();
         };
     }
@@ -277,15 +302,21 @@ var InputService = (function () {
             _this.codeService.updateFolder(folderMenuItem);
             _this.codeService.htmlService.updateSelectedFolder(folderId);
         };
-        this.updateLanguage = function (languageMenuItem) {
-            _this.codeService.updateLanguage(languageMenuItem);
-            _this.codeService.htmlService.updateSelectedLanguage(languageMenuItem.text);
+        this.updateLanguageLeft = function (languageMenuItem) {
+            _this.codeService.updateLanguageLeft(languageMenuItem);
+            _this.codeService.htmlService.updateSelectedLanguageLeft(languageMenuItem.text);
+        };
+        this.updateLanguageRight = function (languageMenuItem) {
+            _this.codeService.updateLanguageRight(languageMenuItem);
+            _this.codeService.htmlService.updateSelectedLanguageRight(languageMenuItem.text);
         };
     }
     InputService.prototype.initialize = function () {
         $('#folder-nav').append(this.codeService.folderMenuItems.map(this.codeService.htmlService.createFolderMenuItem).join(''));
-        $('#language-nav').append(this.codeService.languageMenuItems.map(this.codeService.htmlService.createLanguageMenuItem).join(''));
-        $('#current-language').text(this.codeService.currentLanguage.text);
+        $('#language-nav-left').append(this.codeService.languageMenuItems.map(this.codeService.htmlService.createLanguageMenuItemLeft).join(''));
+        $('#language-nav-right').append(this.codeService.languageMenuItems.map(this.codeService.htmlService.createLanguageMenuItemRight).join(''));
+        $('#current-language-left').text(this.codeService.currentLanguageLeft.text);
+        $('#current-language-right').text(this.codeService.currentLanguageRight.text);
         $("#folder-" + this.codeService.currentFolder.folder).addClass('active');
         this.codeService.updateCode();
     };

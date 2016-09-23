@@ -21,8 +21,13 @@
       <div id="navbar">
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language: <span id="current-language"></span> <span class="caret"></span></a>
-            <ul id="language-nav" class="dropdown-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language: <span id="current-language-left"></span> <span class="caret"></span></a>
+            <ul id="language-nav-left" class="dropdown-menu">
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language: <span id="current-language-right"></span> <span class="caret"></span></a>
+            <ul id="language-nav-right" class="dropdown-menu">
             </ul>
           </li>
         </ul>
@@ -38,8 +43,13 @@
     <ul id="folder-nav" class="nav navbar-nav">
     </ul>
   </div>
-  <div id="code-container" class="container code-container">
-    <pre class="line-numbers"><code id='inner-code' class='language-go'>Don't Panic</code></pre>
+  <div class="side-by-side-container">
+    <div id="code-container-left" class="container code-container">
+      <pre class="line-numbers"><code id='inner-code-left' class='language-go'>Don't Panic</code></pre>
+    </div>
+    <div id="code-container-right" class="container code-container">
+      <pre class="line-numbers"><code id='inner-code-right' class='language-go'>Don't Panic</code></pre>
+    </div>
   </div>
 </body>
 </html>
