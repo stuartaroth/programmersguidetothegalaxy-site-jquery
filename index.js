@@ -272,7 +272,7 @@ var CodeService = (function () {
             });
         };
         this.currentLanguageLeft = this.languageMenuItems[6];
-        this.currentLanguageRight = this.languageMenuItems[6];
+        this.currentLanguageRight = this.languageMenuItems[17];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {
