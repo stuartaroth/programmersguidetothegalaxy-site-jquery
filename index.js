@@ -20,6 +20,7 @@ var Folder;
     Folder[Folder["TernaryOperators"] = 16] = "TernaryOperators";
     Folder[Folder["Variables"] = 17] = "Variables";
     Folder[Folder["VariadicFunctions"] = 18] = "VariadicFunctions";
+    Folder[Folder["WebServer"] = 19] = "WebServer";
 })(Folder || (Folder = {}));
 var Language;
 (function (Language) {
@@ -214,6 +215,8 @@ var CodeService = (function () {
                     return "variables";
                 case Folder.VariadicFunctions:
                     return "variadic_functions";
+                case Folder.WebServer:
+                    return "web_server";
             }
         };
         this.languageMenuItems = [
@@ -257,7 +260,8 @@ var CodeService = (function () {
             { folder: Folder.Switches, text: "Switch Statements" },
             { folder: Folder.TernaryOperators, text: "Ternary Operators" },
             { folder: Folder.Variables, text: "Variables" },
-            { folder: Folder.VariadicFunctions, text: "Variadic Functions" }
+            { folder: Folder.VariadicFunctions, text: "Variadic Functions" },
+            { folder: Folder.WebServer, text: "Web Server" }
         ];
         this.getCodeLeft = function (language, folder) {
             $.get("node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
@@ -271,9 +275,9 @@ var CodeService = (function () {
                 _this.htmlService.updateCodeExampleRight(language, data);
             });
         };
-        this.currentLanguageLeft = this.languageMenuItems[6];
-        this.currentLanguageRight = this.languageMenuItems[17];
-        this.currentFolder = this.folderMenuItems[7];
+        this.currentLanguageLeft = this.languageMenuItems[this.languageMenuItems.length - 1];
+        this.currentLanguageRight = this.languageMenuItems[6];
+        this.currentFolder = this.folderMenuItems[this.folderMenuItems.length - 1];
         this.currentCode = "";
         this.updateCode = function () {
             _this.getCodeLeft(_this.currentLanguageLeft.language, _this.currentFolder.folder);

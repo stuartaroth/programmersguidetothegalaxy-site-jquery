@@ -19,7 +19,8 @@ enum Folder {
   Switches,
   TernaryOperators,
   Variables,
-  VariadicFunctions
+  VariadicFunctions,
+  WebServer
 }
 
 enum Language {
@@ -244,6 +245,8 @@ class CodeService {
         return "variables";
       case Folder.VariadicFunctions:
         return "variadic_functions";
+      case Folder.WebServer:
+            return "web_server";
     }
   };
 
@@ -289,7 +292,8 @@ class CodeService {
     {folder:Folder.Switches, text: "Switch Statements"},
     {folder:Folder.TernaryOperators, text:"Ternary Operators"},
     {folder:Folder.Variables, text:"Variables"},
-    {folder:Folder.VariadicFunctions, text:"Variadic Functions"}
+    {folder:Folder.VariadicFunctions, text:"Variadic Functions"},
+    {folder:Folder.WebServer, text:"Web Server"}
   ];
 
   getCodeLeft = (language:Language, folder:Folder) => {
@@ -306,9 +310,9 @@ class CodeService {
     });
   };
 
-  currentLanguageLeft:LanguageMenuItem = this.languageMenuItems[6];
-  currentLanguageRight:LanguageMenuItem = this.languageMenuItems[17];
-  currentFolder:FolderMenuItem = this.folderMenuItems[7];
+  currentLanguageLeft:LanguageMenuItem = this.languageMenuItems[this.languageMenuItems.length-1];
+  currentLanguageRight:LanguageMenuItem = this.languageMenuItems[6];
+  currentFolder:FolderMenuItem = this.folderMenuItems[this.folderMenuItems.length-1];
   currentCode:string = "";
 
   updateCode = () => {
