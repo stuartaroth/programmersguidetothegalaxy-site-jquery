@@ -310,9 +310,9 @@ class CodeService {
     });
   };
 
-  currentLanguageLeft:LanguageMenuItem = this.languageMenuItems[this.languageMenuItems.length-1];
-  currentLanguageRight:LanguageMenuItem = this.languageMenuItems[6];
-  currentFolder:FolderMenuItem = this.folderMenuItems[this.folderMenuItems.length-1];
+  currentLanguageLeft:LanguageMenuItem = this.languageMenuItems[6];
+  currentLanguageRight:LanguageMenuItem = this.languageMenuItems[17];
+  currentFolder:FolderMenuItem = this.folderMenuItems[7];
   currentCode:string = "";
 
   updateCode = () => {
