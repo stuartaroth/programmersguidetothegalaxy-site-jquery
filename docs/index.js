@@ -264,13 +264,13 @@ var CodeService = (function () {
             { folder: Folder.WebServer, text: "Web Server" }
         ];
         this.getCodeLeft = function (language, folder) {
-            $.get("node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
+            $.get("http://stuartaroth.github.io/programmersguidetothegalaxy-site-jquery/node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
                 _this.currentCode = data;
                 _this.htmlService.updateCodeExampleLeft(language, data);
             });
         };
         this.getCodeRight = function (language, folder) {
-            $.get("node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
+            $.get("http://stuartaroth.github.io/programmersguidetothegalaxy-site-jquery/node_modules/programmersguidetothegalaxy/" + _this.getFolder(folder) + "/" + _this.getLanguage(language), function (data) {
                 _this.currentCode = data;
                 _this.htmlService.updateCodeExampleRight(language, data);
             });
