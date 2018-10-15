@@ -40,11 +40,12 @@ var Language;
     Language[Language["Perl"] = 13] = "Perl";
     Language[Language["PHP"] = 14] = "PHP";
     Language[Language["Python"] = 15] = "Python";
-    Language[Language["Ruby"] = 16] = "Ruby";
-    Language[Language["Rust"] = 17] = "Rust";
-    Language[Language["Scala"] = 18] = "Scala";
-    Language[Language["Swift"] = 19] = "Swift";
-    Language[Language["TypeScript"] = 20] = "TypeScript";
+    Language[Language["R"] = 16] = "R";
+    Language[Language["Ruby"] = 17] = "Ruby";
+    Language[Language["Rust"] = 18] = "Rust";
+    Language[Language["Scala"] = 19] = "Scala";
+    Language[Language["Swift"] = 20] = "Swift";
+    Language[Language["TypeScript"] = 21] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -82,6 +83,8 @@ var HtmlService = (function () {
                     return "language-php";
                 case Language.Python:
                     return "language-python";
+                case Language.R:
+                    return "language-r";
                 case Language.Ruby:
                     return "language-ruby";
                 case Language.Rust:
@@ -168,6 +171,8 @@ var CodeService = (function () {
                     return "example.php";
                 case Language.Python:
                     return "example.py";
+                case Language.R:
+                    return "example.R";
                 case Language.Ruby:
                     return "example.rb";
                 case Language.Rust:
@@ -241,6 +246,7 @@ var CodeService = (function () {
             { language: Language.Perl, text: "Perl" },
             { language: Language.PHP, text: "PHP" },
             { language: Language.Python, text: "Python" },
+            { language: Language.R, text: "R" },
             { language: Language.Ruby, text: "Ruby" },
             { language: Language.Rust, text: "Rust" },
             { language: Language.Scala, text: "Scala" },
@@ -281,7 +287,7 @@ var CodeService = (function () {
                 _this.htmlService.updateCodeExampleRight(language, data);
             });
         };
-        this.currentLanguageLeft = this.languageMenuItems[8];
+        this.currentLanguageLeft = this.languageMenuItems[16];
         this.currentLanguageRight = this.languageMenuItems[9];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
