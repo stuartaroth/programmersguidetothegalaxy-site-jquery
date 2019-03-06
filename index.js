@@ -30,22 +30,23 @@ var Language;
     Language[Language["CoffeeScript"] = 3] = "CoffeeScript";
     Language[Language["CommonLisp"] = 4] = "CommonLisp";
     Language[Language["Dart"] = 5] = "Dart";
-    Language[Language["Go"] = 6] = "Go";
-    Language[Language["Groovy"] = 7] = "Groovy";
-    Language[Language["Haxe"] = 8] = "Haxe";
-    Language[Language["Java"] = 9] = "Java";
-    Language[Language["JavaScript"] = 10] = "JavaScript";
-    Language[Language["Kotlin"] = 11] = "Kotlin";
-    Language[Language["Nim"] = 12] = "Nim";
-    Language[Language["Perl"] = 13] = "Perl";
-    Language[Language["PHP"] = 14] = "PHP";
-    Language[Language["Python"] = 15] = "Python";
-    Language[Language["R"] = 16] = "R";
-    Language[Language["Ruby"] = 17] = "Ruby";
-    Language[Language["Rust"] = 18] = "Rust";
-    Language[Language["Scala"] = 19] = "Scala";
-    Language[Language["Swift"] = 20] = "Swift";
-    Language[Language["TypeScript"] = 21] = "TypeScript";
+    Language[Language["Elixir"] = 6] = "Elixir";
+    Language[Language["Go"] = 7] = "Go";
+    Language[Language["Groovy"] = 8] = "Groovy";
+    Language[Language["Haxe"] = 9] = "Haxe";
+    Language[Language["Java"] = 10] = "Java";
+    Language[Language["JavaScript"] = 11] = "JavaScript";
+    Language[Language["Kotlin"] = 12] = "Kotlin";
+    Language[Language["Nim"] = 13] = "Nim";
+    Language[Language["Perl"] = 14] = "Perl";
+    Language[Language["PHP"] = 15] = "PHP";
+    Language[Language["Python"] = 16] = "Python";
+    Language[Language["R"] = 17] = "R";
+    Language[Language["Ruby"] = 18] = "Ruby";
+    Language[Language["Rust"] = 19] = "Rust";
+    Language[Language["Scala"] = 20] = "Scala";
+    Language[Language["Swift"] = 21] = "Swift";
+    Language[Language["TypeScript"] = 22] = "TypeScript";
 })(Language || (Language = {}));
 var HtmlService = (function () {
     function HtmlService() {
@@ -63,6 +64,8 @@ var HtmlService = (function () {
                     return "language-lisp";
                 case Language.Dart:
                     return "language-dart";
+                case Language.Elixir:
+                    return "language-elixir";
                 case Language.Go:
                     return "language-go";
                 case Language.Groovy:
@@ -151,6 +154,8 @@ var CodeService = (function () {
                     return "example.lisp";
                 case Language.Dart:
                     return "example.dart";
+                case Language.Elixir:
+                    return "example.exs";
                 case Language.Go:
                     return "example.go";
                 case Language.Groovy:
@@ -236,6 +241,7 @@ var CodeService = (function () {
             { language: Language.CoffeeScript, text: "CoffeeScript" },
             { language: Language.CommonLisp, text: "Common Lisp" },
             { language: Language.Dart, text: "Dart" },
+            { language: Language.Elixir, text: "Elixir" },
             { language: Language.Go, text: "Go" },
             { language: Language.Groovy, text: "Groovy" },
             { language: Language.Haxe, text: "Haxe" },
@@ -287,8 +293,8 @@ var CodeService = (function () {
                 _this.htmlService.updateCodeExampleRight(language, data);
             });
         };
-        this.currentLanguageLeft = this.languageMenuItems[16];
-        this.currentLanguageRight = this.languageMenuItems[9];
+        this.currentLanguageLeft = this.languageMenuItems[7];
+        this.currentLanguageRight = this.languageMenuItems[6];
         this.currentFolder = this.folderMenuItems[7];
         this.currentCode = "";
         this.updateCode = function () {
